@@ -25,7 +25,7 @@ void Collision::changeToDeath(Character& character, const std::vector<SDL_Rect>&
         if (characterRect.x + int(characterRect.w * spriteRat) >= rocketRect.x + 100 &&
             characterRect.x <= rocketRect.x + rocketRect.w - 40 &&
             //characterRect.y + characterRect.h * spriteRat >= rocketRect.y + 100 &&
-            characterRect.y <= rocketRect.y + rocketRect.h * appleRat - 50) {
+            characterRect.y <= rocketRect.y + rocketRect.h * appleRat - 160) {
             character.isDead = true;
             std::cout << "Character died due to ROCKET explosion!\n";
             break;
