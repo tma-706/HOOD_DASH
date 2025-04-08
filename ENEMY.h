@@ -30,7 +30,7 @@ public:
     std::vector<SDL_Rect> getOnScrEnemy() const;
     void reset();
     ~enemyManager();
-    int maxEnemyNum = 3;
+    int maxEnemyNum = 5;
 private:
     std::vector<SDL_Texture*> enemyTextures;
     std::vector<Enemy> enemiesOnScreen;

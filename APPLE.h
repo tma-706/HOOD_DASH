@@ -11,8 +11,8 @@ public:
     void update();
     bool isOffScreen();
     SDL_Rect getRect() const;
-    bool isCollected() const { return collected; }
-    void setCollected(bool value) { collected = value; }
+    bool isCollected() const {return collected;}
+    void setCollected(bool value) {collected = value;}
 private:
     SDL_Texture* texture;
     int a_x;

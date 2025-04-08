@@ -28,7 +28,7 @@ public:
 private:
     int jumpcount = 0;
     std::map <State, Sprite> sprites;
-    int x = 50;
+    int x = mainX;
     int y = SCREEN_HEIGHT - GROUND_LEVEL - mainchar * spriteRat;
     int gravity = 1;
     int velocityY = 0;

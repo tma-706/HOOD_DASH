@@ -44,8 +44,8 @@ void enemyManager::spawnEnemy() {
     Uint32 now = SDL_GetTicks();
 
     if (now - lastIncreaseTime >= 45000) {
-        if(maxEnemyNum>=5) {
-            maxEnemyNum=5;
+        if(maxEnemyNum>=7) {
+            maxEnemyNum=7;
         }
         else {
         maxEnemyNum += 1;  // Tăng số lượng tối đa enemy sau mỗi 45s

@@ -1,5 +1,4 @@
 #include "STATEMACHINE.h"
-//#include <iostream>
 
 void Character::init(Graphics& graphic) {
     sprites[RUNNING].init(graphic.loadTexture(MAIN_RUN), MAIN_RUN_CLIPS, MAIN_RUN_FRAMES);
@@ -15,26 +14,21 @@ void Character::handleInput(const Uint8* keyState) {
             isOnAir = true;
             velocityY = jumpHeight;
             jumpcount++;
-            //std::cout << "Jump count: " << jumpcount << std::endl;
         }
     }
     else {
         jumpPressed = false; // Khi nhả phím, reset biến này
     }
     if(keyState[SDL_SCANCODE_LEFT]) {
-        if(!isOnAir) {
-            x -= 3;
+            x -= 10;
             if(x <= 0) {
                 x = 0;
-            }
         }
     }
     if(keyState[SDL_SCANCODE_RIGHT]) {
-        if(!isOnAir) {
-            x += 3;
+            x += 5;
             if(x > SCREEN_WIDTH - mainchar * spriteRat) {
               x = SCREEN_WIDTH - mainchar * spriteRat;
-            }
         }
     }
 }
@@ -102,7 +96,7 @@ void Character::changeState(State newState) {
 }
 
 SDL_Rect Character::charGetRect() const {
-    return {getX(), getY(), 31*spriteRat, 31*spriteRat};
+    return {getX(), getY(), mainchar*spriteRat, mainchar*spriteRat};
 }
 
 Character::~Character() {
@@ -118,4 +112,6 @@ void Character::reset() {
     maxJumpCount=2;
     jumpHeight=-17;
     newjumpHeight=-17;
+    x = mainX;
+    y = SCREEN_HEIGHT - GROUND_LEVEL - mainchar * spriteRat;
 }

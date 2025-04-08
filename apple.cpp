@@ -79,5 +79,5 @@ appleManager::~appleManager() {
 
 void appleManager::reset() {
     applesOnScreen.clear();
-    lastSpawnTime = 0;
+    lastSpawnTime = SDL_GetTicks();
 }

@@ -6,6 +6,7 @@
 #include "COLLIDE.h"
 #include "APPLE.h"
 #include "MUSIC.h"
+#include "ROCKET.h"
 
 enum GameState { MENU, GUIDE, GAMEPLAY, GAMEOVER };
 
@@ -29,6 +30,7 @@ private:
     ScrollingBackground background;
     Score score;
     appleManager applee;
+    rocketManager rockets;
     Music music;
     SDL_Texture* menuTexture;
     Collision collision;

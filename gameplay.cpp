@@ -25,6 +25,7 @@ void Game::init() {
     score.init(graphic);
     applee.init(graphic);
     music.init(BGMUSIC, graphic);
+    rockets.init(graphic);
     music.playMusic();
 }
 
@@ -71,9 +72,10 @@ void Game::update() {
     enemy.updateEnemy();
     score.update();
     applee.spawnApple();
+    rockets.updateRocket(player);
     applee.updateApple();
     collision.eatApple(player,applee,score);
-    collision.changeToDeath(player, enemy.getOnScrEnemy());
+    collision.changeToDeath(player, enemy.getOnScrEnemy(), rockets.getOnScrRocket());
     if (player.isDead) {
         state = GAMEOVER;
     }
@@ -99,6 +101,7 @@ void Game::render() {
         player.render(graphic);
         score.render(graphic, 30, 10, 30, 60);
         applee.renderApple(graphic);
+        rockets.renderRocket(graphic);
     }
     else if (state == GAMEOVER) {
         graphic.renderTexture(gameOverTexture, 0, 0,1);
@@ -116,6 +119,7 @@ void Game::reset() {
     state = GAMEPLAY;
     player.isDead=false;
     applee.reset();
+    rockets.reset();
     music.stopMusic();
     music.playMusic();
 }

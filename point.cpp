@@ -26,7 +26,7 @@ Score::~Score() {
 
 void Score::update() {
     Uint32 currentTime = SDL_GetTicks();
-     if (currentTime - lastUpdateTime >= 500) {
+     if (currentTime - lastUpdateTime >= 1000) {
         score++;
         lastUpdateTime = currentTime;
     }
